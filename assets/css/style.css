@@ -1,0 +1,473 @@
+/* American Armed Forces Museum -- shared site stylesheet */
+
+:root {
+  --bg: #110f0f;
+  --bg-panel: #1a1717;
+  --bg-panel-alt: #181414;
+  --maroon: #7a1620;
+  --maroon-dark: #5c1018;
+  --cream: #f3ead8;
+  --text: #cfc6b8;
+  --text-dim: #9c9388;
+  --amber: #c2622f;
+  --gold: #c9a227;
+  --border: #2c2724;
+  --radius: 4px;
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .serif {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--cream);
+  margin: 0 0 .5em;
+  font-weight: 700;
+}
+
+a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .75rem;
+  color: var(--amber);
+  font-weight: 600;
+}
+
+.rule {
+  width: 40px;
+  height: 2px;
+  background: var(--amber);
+  margin: 10px 0 18px;
+  border: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid var(--cream);
+  border-radius: var(--radius);
+  font-size: .85rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  transition: background .2s, color .2s;
+  background: transparent;
+  color: var(--cream);
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn:hover { background: var(--cream); color: var(--bg); }
+
+.btn-solid {
+  background: var(--cream);
+  color: var(--bg);
+  border-color: var(--cream);
+}
+.btn-solid:hover { background: transparent; color: var(--cream); }
+
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Header */
+.site-header {
+  background: #0c0a0a;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: var(--cream);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+.brand img { height: 48px; width: auto; }
+.main-nav { display: flex; align-items: center; gap: 28px; }
+.main-nav a {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text);
+}
+.main-nav a:hover, .main-nav a.active { color: var(--cream); }
+.nav-toggle { display: none; }
+
+@media (max-width: 760px) {
+  .main-nav { display: none; }
+}
+
+/* Hero */
+.hero {
+  background: radial-gradient(ellipse at top, #2a1212 0%, var(--bg) 60%);
+  padding: 90px 24px 60px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.15;
+  max-width: 760px;
+  margin: 14px auto 18px;
+}
+.hero p.lead {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: var(--text-dim);
+}
+.hero .rule { margin: 10px auto 18px; }
+
+.info-bar {
+  background: var(--maroon);
+  color: var(--cream);
+  padding: 18px 24px;
+}
+.info-bar .wrap {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-size: .85rem;
+  text-align: center;
+}
+.info-bar .wrap > div { display: flex; align-items: center; gap: 8px; }
+
+/* Page hero (non-home pages) */
+.page-hero {
+  background: radial-gradient(ellipse at top, #2a1212 0%, var(--bg) 60%);
+  padding: 60px 24px 40px;
+  text-align: center;
+}
+.page-hero h1 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.page-hero p { color: var(--text-dim); max-width: 620px; margin: 10px auto 0; }
+
+/* Branches row */
+.branches {
+  padding: 60px 24px 50px;
+  text-align: center;
+}
+.branches .eyebrow { display: block; margin-bottom: 26px; }
+.branch-list {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.branch-list li { width: 96px; }
+.branch-list a { display: block; }
+.branch-list img {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+}
+.branch-list span {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.branch-list a:hover span { color: var(--cream); }
+
+/* About / two-column */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 50px 24px;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+}
+.pull-quote {
+  border-left: 3px solid var(--maroon);
+  padding-left: 20px;
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--cream);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Card grid */
+.cards {
+  padding: 10px 24px 60px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 860px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 26px;
+  border-radius: var(--radius);
+}
+.card .icon { font-size: 1.6rem; margin-bottom: 14px; }
+.card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.card p { font-size: .9rem; color: var(--text-dim); }
+.card .more {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--amber);
+}
+
+/* Visit banner */
+.visit-banner {
+  background: var(--maroon);
+  color: var(--cream);
+  text-align: center;
+  padding: 50px 24px;
+}
+.visit-banner .eyebrow { color: #f0c9b0; }
+.visit-banner h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.visit-banner .btn-row { justify-content: center; margin-top: 24px; }
+.visit-banner .btn { border-color: var(--cream); color: var(--cream); }
+.visit-banner .btn-solid { background: var(--cream); color: var(--maroon-dark); }
+.visit-banner .btn-solid:hover { background: transparent; color: var(--cream); }
+
+/* Generic content section */
+.content-section {
+  padding: 50px 24px;
+  border-top: 1px solid var(--border);
+}
+.content-section.narrow { max-width: 760px; margin: 0 auto; }
+.content-section h2 { font-size: 1.6rem; }
+.content-section p { margin-bottom: 1em; }
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 10px 24px 50px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+.gallery figure {
+  margin: 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.gallery img { width: 100%; height: 200px; object-fit: cover; }
+.gallery figcaption {
+  padding: 8px 12px;
+  font-size: .75rem;
+  color: var(--text-dim);
+}
+
+/* Lists (cemeteries, etc.) */
+.plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 30px;
+}
+@media (max-width: 600px) {
+  .plain-list { grid-template-columns: 1fr; }
+}
+.plain-list li {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+/* Definition-style rows (contact info) */
+.info-rows dt {
+  color: var(--amber);
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: .07em;
+  margin-top: 18px;
+}
+.info-rows dd {
+  margin: 4px 0 0;
+  color: var(--cream);
+  font-size: 1.05rem;
+}
+
+/* Poem */
+.poem p {
+  text-align: center;
+  font-family: Georgia, serif;
+  color: var(--cream);
+  margin-bottom: 1.4em;
+}
+.poem .byline {
+  text-align: center;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 2em;
+}
+.poem .credit {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: .85rem;
+  font-style: italic;
+}
+
+/* Membership card */
+.mail-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.mail-card dl { margin: 0; }
+.mail-card .amount {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.mail-card .amount + p {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: .85rem;
+  margin-bottom: 24px;
+}
+
+/* Footer */
+.site-footer {
+  background: #0c0a0a;
+  border-top: 1px solid var(--border);
+  padding: 30px 24px;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0 0 14px;
+  font-size: .8rem;
+  color: var(--text-dim);
+}
+.footer-nav { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.footer-nav a {
+  font-size: .8rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.footer-nav a:hover { color: var(--cream); }
+
+.resource-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.resource-links a {
+  font-size: .72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.resource-links a:hover { color: var(--amber); }
+
+/* Cemetery list links */
+.plain-list a {
+  display: block;
+  color: var(--text);
+}
+.plain-list a:hover { color: var(--cream); }
+.plain-list .none {
+  color: var(--text-dim);
+  font-size: .8rem;
+  font-style: italic;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--amber);
+}
+
+.no-photos {
+  color: var(--text-dim);
+  font-style: italic;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.mail-card img.card-scan {
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+}
+
+@media print {
+  .site-header, .page-hero, .visit-banner, .site-footer, .no-print {
+    display: none !important;
+  }
+  body { background: #fff; color: #000; }
+  .content-section { padding: 0; }
+  .mail-card {
+    background: #fff;
+    border: none;
+    max-width: 100%;
+    padding: 0;
+  }
+  .mail-card .amount, .mail-card dt, .mail-card dd, .mail-card p {
+    color: #000;
+  }
+  .mail-card img.card-scan {
+    border: none;
+  }
+}

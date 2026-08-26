@@ -1,0 +1,23 @@
+# 301 redirects from the old site's URLs to the redesigned site's filenames.
+# Keeps existing bookmarks, search rankings, and external links (genealogy
+# forums link directly to several cemetery pages) working after launch.
+
+Redirect 301 /index.htm /index.html
+
+Redirect 301 /Museum.htm /museum.html
+Redirect 301 /membership_application.htm /join.html
+Redirect 301 /Contact.html /contact.html
+Redirect 301 /Cemeteries.html /cemeteries.html
+Redirect 301 /in_memory.htm /in-memory.html
+
+Redirect 301 /Alamogordo.html /cemetery-alamogordo.html
+Redirect 301 /Avis.html /cemetery-avis.html
+Redirect 301 /Blazers_Mill.html /cemetery-blazers-mill.html
+Redirect 301 /Boles_Acres.html /cemetery-boles-acres.html
+Redirect 301 /James_Canyon.html /cemetery-james-canyon.html
+Redirect 301 /Our_Lady_of_Guadalupe.html /cemetery-our-lady-of-guadalupe.html
+Redirect 301 /Mayhill.html /cemetery-mayhill.html
+Redirect 301 /Sixteen_Springs_Canyon.html /cemetery-sixteen-springs-canyon.html
+Redirect 301 /Three_Rivers.html /cemetery-three-rivers.html
+Redirect 301 /Timberon_Memorial_Park.html /cemetery-timberon-memorial-park.html
+Redirect 301 /Tularosa.html /cemetery-tularosa.html
