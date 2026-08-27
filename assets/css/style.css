@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* American Armed Forces Museum -- shared site stylesheet */
 
 :root {
@@ -124,6 +125,14 @@ img { max-width: 100%; display: block; }
   color: var(--text);
 }
 .main-nav a:hover, .main-nav a.active { color: var(--cream); }
+
+/* Nav items that leave the site carry an outbound arrow */
+.main-nav .nav-external::after {
+  content: "↗";
+  font-size: .85em;
+  margin-left: 4px;
+  opacity: .7;
+}
 .main-nav .nav-donate { display: none; }
 
 /* Hamburger -- hidden on desktop, shown below 760px */
