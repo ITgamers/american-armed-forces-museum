@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +14,16 @@
       <img src="assets/img/logo.png" alt="American Armed Forces Museum logo">
       American Armed Forces<br>Museum
     </a>
-    <nav class="main-nav">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="main-nav">
       <a href="index.html">Home</a>
       <a href="museum.html">Museum</a>
       <a href="library.html">Library</a>
       <a href="in-memory.html">In Memory</a>
       <a href="contact.html" class="active">Contact</a>
+      <a class="nav-donate" href="donate.html">Donate</a>
     </nav>
     <a class="btn btn-solid" href="donate.html">Donate</a>
   </div>
@@ -68,5 +72,6 @@
   </nav>
 </footer>
 
+<script src="assets/js/nav.js" defer></script>
 </body>
 </html>

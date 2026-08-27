@@ -124,10 +124,79 @@ img { max-width: 100%; display: block; }
   color: var(--text);
 }
 .main-nav a:hover, .main-nav a.active { color: var(--cream); }
-.nav-toggle { display: none; }
+.main-nav .nav-donate { display: none; }
+
+/* Hamburger -- hidden on desktop, shown below 760px */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.nav-toggle:hover { border-color: var(--text-dim); }
+.nav-toggle:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--cream);
+  transition: transform .25s ease, opacity .2s ease;
+}
+/* Bars fold into an X while the menu is open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 760px) {
-  .main-nav { display: none; }
+  .site-header .wrap { flex-wrap: wrap; gap: 12px; }
+  .brand { font-size: .95rem; }
+  .brand img { height: 40px; }
+
+  .nav-toggle { display: flex; }
+
+  /* Donate lives inside the menu on phones so the top row can't overflow */
+  .site-header .wrap > .btn-solid { display: none; }
+
+  .main-nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-bottom: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .main-nav.open { display: flex; }
+  .main-nav a {
+    padding: 15px 2px;
+    font-size: .85rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .main-nav .nav-donate {
+    display: block;
+    margin-top: 16px;
+    padding: 13px 24px;
+    border: 1px solid var(--cream);
+    border-radius: var(--radius);
+    background: var(--cream);
+    color: var(--bg);
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+/* No JS: fall back to always-visible nav rather than an unreachable menu */
+@media (max-width: 760px) {
+  .no-js .nav-toggle { display: none; }
+  .no-js .main-nav { display: flex; }
 }
 
 /* Hero */
